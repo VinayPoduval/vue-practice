@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <h1>Hi, I am learning Vue :)</h1>
+    <div id="app">
+        <ul>
+            <li v-for="player in favPlayers">
+                {{player.name}}
+            </li>
+        </ul>
+        <div v-if="showData">
+            <ul>
+                <li v-for="player in players" :class="{fav: player.isFav}" @click="toggleFav(player)">
+                    <img :src="player.img" :alt="player.name" />
+                    <h2>{{ player.name }}</h2>
+                    <h3>{{ player.type }}</h3>
+                </li>
+            </ul>
+        </div>
+        <button @click="toggleData">
+            <span v-if="showData">Hide Data</span>
+            <span v-else>Show Data</span>
+        </button>
+        <br>
+        <!--<div class="box" @mouseover="handleEvent($event, 5)">mouse over</div>
+        <div class="box" @mouseleave="handleEvent">leave</div>
+        <div class="box" @dblclick="handleEvent">double-click</div>
+        <div class="box" @mousemove="handleMouseMove">[{{x}}, {{y}}]</div>-->
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
